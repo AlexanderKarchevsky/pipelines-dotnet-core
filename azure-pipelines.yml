@@ -6,21 +6,20 @@ parameters:
   type: boolean
   default: false
 
-strategy:
-  matrix:
-    linux:
-      imageName: "ubuntu-latest"
-    windows:
-      imageName: "windows-latest"
-    mac:
-      imageName: "macOS-latest"
-  maxParallel: 1
-
 pool:
   vmImage: $(imageName)
 
 jobs:
 - job: Work
+  strategy:
+    matrix:
+      linux:
+        imageName: "ubuntu-latest"
+      windows:
+        imageName: "windows-latest"
+      mac:
+        imageName: "macOS-latest"
+    maxParallel: 1
   steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
@@ -32,6 +31,15 @@ jobs:
 
 # This job creates a work item, and only runs if the previous job failed
 - job: ErrorHandler
+  strategy:
+  matrix:
+    linux:
+      imageName: "ubuntu-latest"
+    windows:
+      imageName: "windows-latest"
+    mac:
+      imageName: "macOS-latest"
+  maxParallel: 1
   dependsOn: Work
   condition: failed()
   steps: 
