@@ -14,6 +14,8 @@ strategy:
       imageName: "ubuntu-latest"
     windows:
       imageName: "windows-latest"
+    mac:
+      imageName: "macOS-latest"
   maxParallel: 1
 
 pool:
