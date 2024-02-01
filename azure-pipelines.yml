@@ -27,6 +27,11 @@ jobs:
 
 # This job creates a work item, and only runs if the previous job failed
 - job: ErrorHandler
+  strategy:
+      matrix:
+        linux:
+          imageName: "ubuntu-latest"
+      maxParallel: 1
   dependsOn: Work
   condition: failed()
   steps: 
