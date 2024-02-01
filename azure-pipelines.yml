@@ -10,16 +10,12 @@ pool:
   vmImage: $(imageName)
 
 jobs:
+- job: Work
   strategy:
     matrix:
       linux:
         imageName: "ubuntu-latest"
-      windows:
-        imageName: "windows-latest"
-      mac:
-        imageName: "macOS-latest"
     maxParallel: 1
-- job: Work
   steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
