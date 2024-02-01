@@ -12,7 +12,7 @@ strategy:
   matrix:
     linux:
       imageName: "ubuntu-latest"
-  maxParallel: 3
+  maxParallel: 1
 
 pool:
   vmImage: $(imageName)
