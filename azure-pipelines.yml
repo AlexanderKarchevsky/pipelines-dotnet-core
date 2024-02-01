@@ -8,8 +8,14 @@ parameters:
 
 trigger: none
 
+strategy:
+  matrix:
+    linux:
+      imageName: "ubuntu-latest"
+  maxParallel: 3
+
 pool:
-  vmImage: ubuntu-latest
+  vmImage: $(imageName)
 
 jobs:
 - job: Work
