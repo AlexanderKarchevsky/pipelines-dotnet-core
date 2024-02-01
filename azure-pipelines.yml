@@ -1,24 +1,16 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
+# When manually running the pipeline, you can select whether it
+# succeeds or fails.
 parameters:
 - name: succeed
   displayName: Succeed or fail
   type: boolean
   default: false
 
-trigger: none
-
-strategy:
-  matrix:
-    linux:
-      imageName: 'ubuntu-latest'
-  maxParallel: 3
+trigger:
+- main
 
 pool:
-  vmImage: $(imageName)
+  vmImage: ubuntu-latest
 
 jobs:
 - job: Work
