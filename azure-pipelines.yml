@@ -3,9 +3,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
-
 strategy:
   matrix:
     linux:
@@ -14,7 +11,7 @@ strategy:
       imageName: 'windows-latest'
     mac:
       imageName: 'macOS-latest'
-  maxParallel: 1
+  maxParallel: 3
 
 pool:
   vmImage: $(imageName)
